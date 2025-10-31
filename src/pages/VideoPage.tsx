@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
@@ -79,6 +79,8 @@ const VideoPage: FC = () => {
   const [purchaseError, setPurchaseError] = useState<string | null>(null);
   const [hasPurchased, setHasPurchased] = useState(false);
   const [purchaseComplete, setPurchaseComplete] = useState(false);
+  const videoBoxRef = useRef<HTMLDivElement | null>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const loadVideo = async () => {
@@ -264,6 +266,15 @@ Please let me know how to proceed with payment.`;
     );
   }
 
+  useEffect(() => {
+    if (!videoBoxRef.current || isReady) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setIsReady(true); });
+    }, { threshold: 0.2 });
+    obs.observe(videoBoxRef.current);
+    return () => obs.disconnect();
+  }, [isReady]);
+
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Button 
@@ -294,10 +305,10 @@ Please let me know how to proceed with payment.`;
         <Grid container spacing={3}>
           <Grid item xs={12} md={hasPurchased && videoUrl ? 12 : 6}>
             {hasPurchased && videoUrl ? (
-              <Box sx={{ position: 'relative', width: '100%', pt: '56.25%', mb: 2 }}>
+              <Box ref={videoBoxRef} sx={{ position: 'relative', width: '100%', pt: '56.25%', mb: 2 }}>
                 <video
                   controls
-                  autoPlay
+                  preload="none"
                   style={{
                     position: 'absolute',
                     top: 0,
@@ -307,7 +318,8 @@ Please let me know how to proceed with payment.`;
                     objectFit: 'contain',
                     backgroundColor: '#000'
                   }}
-                  src={videoUrl}
+                  src={isReady ? videoUrl : undefined}
+                  poster={video?.thumbnailUrl}
                 >
                   Your browser does not support the video tag.
                 </video>
@@ -316,6 +328,7 @@ Please let me know how to proceed with payment.`;
               <Card>
                 <CardMedia
                   component="img"
+                  loading="lazy"
                   image={video?.thumbnailUrl || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTk5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5WaWRlbyBUaHVtYm5haWw8L3RleHQ+PC9zdmc+'}
                   alt={video?.title}
                   sx={{ height: 300, objectFit: 'cover' }}

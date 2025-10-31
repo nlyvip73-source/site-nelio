@@ -310,11 +310,11 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
           overflow: 'hidden',
           boxShadow: theme => `0 8px 20px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.15)'}`,
           cursor: 'pointer',
-          backgroundColor: '#1a1a1a',
-          border: '1px solid rgba(142,36,170,0.2)',
+          backgroundColor: theme => theme.palette.background.paper,
+          border: theme => theme.palette.mode === 'dark' ? '1px solid rgba(142,36,170,0.2)' : '1px solid rgba(0,0,0,0.06)',
           '&:hover': {
-            transform: 'translateY(-10px) scale(1.02)',
-            boxShadow: '0 16px 30px rgba(142,36,170,0.3)',
+            transform: 'translateY(-6px) scale(1.01)',
+            boxShadow: theme => theme.palette.mode === 'dark' ? '0 16px 30px rgba(0,0,0,0.5)' : '0 12px 24px rgba(0,0,0,0.12)',
             borderColor: '#d32f2f',
           }
         }}
@@ -351,6 +351,7 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
         {video.thumbnailUrl && !thumbnailError ? (
           <CardMedia
             component="img"
+            loading="lazy"
             image={video.thumbnailUrl}
             alt={video.title}
             sx={{ 
@@ -557,7 +558,7 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
           display: '-webkit-box',
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
-          color: 'white',
+          color: theme => theme.palette.text.primary,
         }}>
           {video.title}
         </Typography>

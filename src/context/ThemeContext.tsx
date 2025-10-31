@@ -20,7 +20,6 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  // Always start with dark theme for adult content site
   const [mode, setMode] = useState<ThemeMode>('dark');
 
   useEffect(() => {
@@ -57,12 +56,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
         main: '#b71c1c', // Darker red accent
       },
       background: {
-        default: mode === 'dark' ? '#000000' : '#000000', // Pure black background
-        paper: mode === 'dark' ? '#1a1a1a' : '#1a1a1a',   // Dark cards
+        default: mode === 'dark' ? '#000000' : '#ffffff',
+        paper: mode === 'dark' ? '#1a1a1a' : '#ffffff',
       },
       text: {
-        primary: mode === 'dark' ? '#FFFFFF' : '#FFFFFF',
-        secondary: mode === 'dark' ? '#d32f2f' : '#d32f2f', // Red for secondary text
+        primary: mode === 'dark' ? '#FFFFFF' : '#111111',
+        secondary: mode === 'dark' ? '#d32f2f' : '#555555',
       },
       error: {
         main: '#FF0000', // Pure red for errors
@@ -110,11 +109,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
         styleOverrides: {
           root: {
             borderRadius: 8,
+            backgroundColor: mode === 'dark' ? '#1a1a1a' : '#ffffff',
             transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease',
             '&:hover': {
-              transform: 'scale(1.05)',
+              transform: 'scale(1.03)',
               zIndex: 1,
-              boxShadow: '0 10px 20px rgba(0,0,0,0.5)',
+              boxShadow: mode === 'dark' ? '0 10px 20px rgba(0,0,0,0.5)' : '0 8px 16px rgba(0,0,0,0.12)',
             },
           },
         },
@@ -122,8 +122,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       MuiAppBar: {
         styleOverrides: {
           root: {
-            backgroundColor: mode === 'dark' ? '#1a1a1a' : '#1a1a1a',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+            backgroundColor: mode === 'dark' ? '#1a1a1a' : '#ffffff',
+            color: mode === 'dark' ? '#ffffff' : '#111111',
+            boxShadow: mode === 'dark' ? '0 2px 8px rgba(0, 0, 0, 0.3)' : '0 2px 8px rgba(0, 0, 0, 0.08)',
           },
         },
       },
