@@ -15,23 +15,23 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff !important;
+  background-color: #f5f8ff !important;
   color: #111111 !important;
 }
 
 html {
-  background-color: #ffffff !important;
+  background-color: #f5f8ff !important;
 }
 
 #root {
-  background-color: #ffffff !important;
+  background-color: #f5f8ff !important;
   min-height: 100vh;
 }
 
 // Theme variables
 $dark-bg: #000000;
 $dark-paper: #1a1a1a;
-$light-bg: #ffffff;
+$light-bg: #f5f8ff;
 $light-paper: #ffffff;
 $primary-color: #d32f2f;
 $secondary-color: #b71c1c;

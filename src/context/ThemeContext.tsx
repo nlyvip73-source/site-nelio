@@ -56,7 +56,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
         main: '#1565C0',
       },
       background: {
-        default: mode === 'dark' ? '#000000' : '#ffffff',
+        default: mode === 'dark' ? '#000000' : '#f5f8ff',
         paper: mode === 'dark' ? '#1a1a1a' : '#ffffff',
       },
       text: {
@@ -96,13 +96,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
             padding: '8px 20px',
             transition: 'all 0.3s ease',
           },
-          containedPrimary: {
-            backgroundColor: '#d32f2f',
-            '&:hover': {
-              backgroundColor: '#b71c1c',
-              transform: 'scale(1.03)',
-            },
-          },
         },
       },
       MuiCard: {
@@ -110,11 +103,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
           root: {
             borderRadius: 8,
             backgroundColor: mode === 'dark' ? '#1a1a1a' : '#ffffff',
-            transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
+            border: mode === 'dark' ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(13,71,161,0.12)',
+            boxShadow: mode === 'dark' ? '0 4px 12px rgba(0,0,0,0.4)' : '0 4px 12px rgba(13,71,161,0.06)',
             '&:hover': {
-              transform: 'scale(1.03)',
+              transform: 'translateY(-2px)',
               zIndex: 1,
-              boxShadow: mode === 'dark' ? '0 10px 20px rgba(0,0,0,0.5)' : '0 8px 16px rgba(0,0,0,0.12)',
+              borderColor: mode === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(13,71,161,0.3)',
+              boxShadow: mode === 'dark' ? '0 10px 24px rgba(0,0,0,0.6)' : '0 10px 24px rgba(13,71,161,0.12)',
             },
           },
         },
