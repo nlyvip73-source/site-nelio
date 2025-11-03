@@ -80,7 +80,7 @@ const SplashAnimation = ({ onAnimationComplete }: SplashAnimationProps) => {
     >
       <Box
         sx={{
-          color: '#d32f2f',
+          color: '#0D47A1',
           fontFamily: 'Montserrat, Arial, sans-serif',
           fontWeight: 'bold',
           fontSize: { xs: '3rem', sm: '4rem', md: '6rem' },
@@ -101,7 +101,7 @@ const SplashAnimation = ({ onAnimationComplete }: SplashAnimationProps) => {
           sx={{
             width: '100%',
             height: '8px',
-            backgroundColor: '#d32f2f',
+            backgroundColor: '#0D47A1',
             marginTop: '15px',
           }}
         />

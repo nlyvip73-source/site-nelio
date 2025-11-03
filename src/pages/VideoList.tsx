@@ -290,30 +290,30 @@ const VideoList: FC = () => {
                   label={`From $${Math.min(...videos.map(v => v.price)).toFixed(2)}`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 15, 80, 0.1)',
-                    color: '#FF0F50',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 15, 80, 0.3)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 <Chip 
                   label={`Up to $${Math.max(...videos.map(v => v.price)).toFixed(2)}`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 15, 80, 0.1)',
-                    color: '#FF0F50',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 15, 80, 0.3)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 <Chip 
                   label={`Avg: $${(videos.reduce((sum, v) => sum + v.price, 0) / videos.length).toFixed(2)}`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 15, 80, 0.1)',
-                    color: '#FF0F50',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 15, 80, 0.3)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
               </Box>
@@ -459,7 +459,9 @@ const VideoList: FC = () => {
               my: 3, 
               textAlign: 'center',
               borderRadius: 2,
-              background: 'linear-gradient(135deg, rgba(255, 15, 80, 0.05) 0%, rgba(209, 13, 66, 0.05) 100%)'
+              background: theme => theme.palette.mode === 'dark' 
+                ? 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%)'
+                : 'linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.02) 100%)'
             }}>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
                 No videos found

@@ -357,61 +357,61 @@ Please let me know if you need any assistance accessing your content.`;
                   label={`From $${Math.min(...videos.map(v => v.price)).toFixed(2)}`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 15, 80, 0.1)',
-                    color: '#FF0F50',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 15, 80, 0.3)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 <Chip 
                   label={`${sectionHappyCustomers}+ Happy Customers`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(76, 175, 80, 0.12)',
-                    color: '#2E7D32',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(76, 175, 80, 0.35)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 <Chip 
-                  label={`⭐ ${sectionRating}/5 Rating`}
+                  label={`${sectionRating}/5 Rating`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 193, 7, 0.12)',
-                    color: '#B28704',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 193, 7, 0.35)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 <Chip 
                   label={`${sectionOnlineNow} online`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(244, 67, 54, 0.12)',
-                    color: '#D32F2F',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(244, 67, 54, 0.35)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
-                  icon={<span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff4d4f', display: 'inline-block', boxShadow: '0 0 0 2px rgba(255,77,79,0.2)' }} />}
+                  icon={<span style={{ width: 8, height: 8, borderRadius: '50%', background: '#d32f2f', display: 'inline-block', boxShadow: '0 0 0 2px rgba(211,47,47,0.15)' }} />}
                 />
                 <Chip 
                   label={`Up to $${Math.max(...videos.map(v => v.price)).toFixed(2)}`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 15, 80, 0.1)',
-                    color: '#FF0F50',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 15, 80, 0.3)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 <Chip 
                   label={`Avg: $${(videos.reduce((sum, v) => sum + v.price, 0) / videos.length).toFixed(2)}`}
                   size="small"
                   sx={{ 
-                    backgroundColor: 'rgba(255, 15, 80, 0.1)',
-                    color: '#FF0F50',
+                    backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    color: theme => theme.palette.text.primary,
                     fontWeight: 'bold',
-                    border: '1px solid rgba(255, 15, 80, 0.3)'
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 />
                 
@@ -552,9 +552,7 @@ Please let me know if you need any assistance accessing your content.`;
                           '& .MuiPaginationItem-root': {
                             transition: 'all 0.3s ease',
                             '&:hover': {
-                              transform: 'scale(1.1)',
-                              bgcolor: 'primary.main',
-                              color: 'white'
+                              transform: 'scale(1.06)'
                             }
                           }
                         }}

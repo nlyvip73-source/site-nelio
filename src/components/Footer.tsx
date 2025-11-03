@@ -59,10 +59,10 @@ const Footer: FC = () => {
   return (
     <Box 
       component="footer" 
-      sx={{ 
+        sx={{ 
         py: 5, 
         bgcolor: theme.palette.mode === 'dark' ? '#0A0A0A' : '#ffffff',
-        borderTop: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255,15,80,0.2)' : 'rgba(0,0,0,0.08)'}`,
+        borderTop: `1px solid ${theme.palette.divider}`,
         color: theme.palette.mode === 'dark' ? '#fff' : '#111',
         mt: 6
       }}
@@ -70,7 +70,7 @@ const Footer: FC = () => {
       {/* Age verification disclaimer */}
       <Box 
         sx={{ 
-          backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.06)', 
+          backgroundColor: theme.palette.mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)', 
           p: 2, 
           mb: 4,
           borderRadius: 1,
@@ -80,7 +80,7 @@ const Footer: FC = () => {
           mx: 'auto'
         }}
       >
-        <WarningIcon sx={{ color: '#d32f2f', mr: 2 }} />
+        <WarningIcon sx={{ color: theme.palette.primary.main, mr: 2 }} />
         <Typography variant="body2" sx={{ color: theme.palette.mode === 'dark' ? 'white' : '#111' }}>
           <strong>AGE VERIFICATION NOTICE:</strong> This website contains adult content and is intended for adults aged 18 years or older. 
           By entering this site, you confirm that you are at least 18 years old and agree to our terms and conditions.
@@ -103,7 +103,7 @@ const Footer: FC = () => {
           </Grid>
           
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ color: '#8e24aa', fontWeight: 'bold', mb: 2 }}>
+            <Typography variant="h6" sx={{ color: theme.palette.text.primary, fontWeight: 'bold', mb: 2 }}>
               Quick Links
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -154,7 +154,7 @@ const Footer: FC = () => {
           </Grid>
           
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ color: '#8e24aa', fontWeight: 'bold', mb: 2 }}>
+            <Typography variant="h6" sx={{ color: theme.palette.text.primary, fontWeight: 'bold', mb: 2 }}>
               Legal Information
             </Typography>
             <Typography variant="body2" sx={{ color: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)' }} paragraph>

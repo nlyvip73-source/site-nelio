@@ -119,7 +119,7 @@ const Header: FC = () => {
             size="small"
             sx={{ 
               ml: 1, 
-              bgcolor: '#d32f2f', 
+              bgcolor: theme => theme.palette.primary.main, 
               color: 'white', 
               fontWeight: 'bold',
               height: '22px',
@@ -161,7 +161,7 @@ const Header: FC = () => {
                     borderColor: mode === 'dark' ? 'rgba(142, 36, 170, 0.4)' : 'rgba(0,0,0,0.3)',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#d32f2f',
+                    borderColor: theme => theme.palette.primary.main,
                     borderWidth: '1px',
                   },
                 },
@@ -199,7 +199,7 @@ const Header: FC = () => {
               color: mode === 'dark' ? '#fff' : '#111',
               fontWeight: 600,
               '&:hover': {
-                bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
+                bgcolor: theme => mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)'
               }
             }}
           >
@@ -215,7 +215,7 @@ const Header: FC = () => {
               color: mode === 'dark' ? '#fff' : '#111',
               fontWeight: 600,
               '&:hover': {
-                bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
+                bgcolor: theme => mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)'
               }
             }}
           >
@@ -231,7 +231,7 @@ const Header: FC = () => {
                 mr: 1,
                 color: mode === 'dark' ? '#fff' : '#111',
                 '&:hover': {
-                  bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
+                  bgcolor: theme => mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)'
                 }
               }}
               aria-label="search"
@@ -253,7 +253,7 @@ const Header: FC = () => {
                   color: mode === 'dark' ? '#fff' : '#111',
                   fontWeight: 600,
                   '&:hover': {
-                    bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
+                    bgcolor: theme => mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)'
                   }
                 }}
               >
@@ -266,7 +266,7 @@ const Header: FC = () => {
                 sx={{ 
                   color: mode === 'dark' ? '#fff' : '#111',
                   '&:hover': {
-                    bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
+                    bgcolor: theme => mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)'
                   } 
                 }} 
                 aria-label="logout"
@@ -282,9 +282,9 @@ const Header: FC = () => {
             onClick={toggleTheme} 
             sx={{ 
               ml: 1,
-              color: '#d32f2f',
+              color: theme => theme.palette.primary.main,
               '&:hover': {
-                bgcolor: 'rgba(142, 36, 170, 0.1)'
+                bgcolor: theme => mode === 'dark' ? 'rgba(13,71,161,0.12)' : 'rgba(13,71,161,0.06)'
               }
             }}
             aria-label="toggle theme"

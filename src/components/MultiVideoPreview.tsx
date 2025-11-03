@@ -317,7 +317,7 @@ const MultiVideoPreview: FC<MultiVideoPreviewProps> = ({
                 borderRadius: 1,
                 overflow: 'hidden',
                 cursor: 'pointer',
-                border: currentIndex === index ? '2px solid #FF0F50' : '2px solid transparent',
+                border: currentIndex === index ? (theme => `2px solid ${theme.palette.primary.main}`) : '2px solid transparent',
                 opacity: currentIndex === index ? 1 : 0.7,
                 transition: 'all 0.3s ease',
                 '&:hover': {

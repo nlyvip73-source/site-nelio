@@ -485,12 +485,12 @@ Please provide me with the access details.`;
                     onClick={copyToClipboard}
                     startIcon={copied ? <CheckCircleIcon /> : <ContentCopyIcon />}
                     sx={{ 
-                      borderColor: '#E50914',
-                      color: '#E50914',
+                      borderColor: theme => theme.palette.primary.main,
+                      color: theme => theme.palette.primary.main,
                       '&:hover': {
-                        borderColor: '#E50914',
+                        borderColor: theme => theme.palette.primary.main,
                         color: '#fff',
-                        background: '#E50914',
+                        background: theme => theme.palette.primary.main,
                       }
                     }}
                   >

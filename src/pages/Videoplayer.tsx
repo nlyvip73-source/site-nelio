@@ -827,12 +827,12 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
                  p: 1.5,
                  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(229, 9, 20, 0.1)' : 'rgba(229, 9, 20, 0.05)',
                  borderRadius: 1.5,
-                 border: '1px solid #E50914',
+                 border: theme => `1px solid ${theme.palette.primary.main}`,
                  minWidth: '120px'
                }}>
                  <Typography variant="h4" sx={{ 
                    fontWeight: 'bold', 
-                   color: '#E50914',
+                  color: theme => theme.palette.primary.main,
                    fontSize: { xs: '1.4rem', sm: '1.6rem' },
                    lineHeight: 1
                  }}>

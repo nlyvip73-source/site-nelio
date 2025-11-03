@@ -315,7 +315,7 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
           '&:hover': {
             transform: 'translateY(-6px) scale(1.01)',
             boxShadow: theme => theme.palette.mode === 'dark' ? '0 16px 30px rgba(0,0,0,0.5)' : '0 16px 32px rgba(0,0,0,0.12)',
-            borderColor: 'rgba(211,47,47,0.4)',
+            borderColor: 'rgba(13,71,161,0.35)',
           }
         }}
         onClick={handleCardClick}
@@ -404,7 +404,7 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
               size={40} 
               thickness={4}
               sx={{ 
-                color: '#d32f2f',
+                color: theme => theme.palette.primary.main,
                 mb: 1,
                 animation: 'pulse 1.5s ease-in-out infinite'
               }} 
@@ -519,7 +519,7 @@ I'm sending the payment from my wallet. Please confirm the transaction and provi
             fontWeight: 'bold',
             fontSize: '0.9rem',
             height: '32px',
-            backgroundColor: '#d32f2f',
+            backgroundColor: theme => theme.palette.primary.main,
             border: '2px solid rgba(255, 255, 255, 0.6)',
             '& .MuiChip-label': {
               color: 'white',

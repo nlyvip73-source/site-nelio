@@ -50,10 +50,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     palette: {
       mode,
       primary: {
-        main: '#1976d2',
+        main: '#0D47A1',
       },
       secondary: {
-        main: '#6c757d',
+        main: '#1565C0',
       },
       background: {
         default: mode === 'dark' ? '#000000' : '#ffffff',
