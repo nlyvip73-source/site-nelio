@@ -30,7 +30,7 @@ const AppContent: FC = () => {
   const [showSplash, setShowSplash] = useState(false);
   const [showAgeVerification, setShowAgeVerification] = useState(true);
   const location = useLocation();
-  const enableSplash = false; // feature-flag: disable splash without removing code
+  const enableSplash = true; // feature-flag: enable splash to match new design
   
   // Atualizar o título da página quando o siteName mudar
   useEffect(() => {
@@ -39,39 +39,17 @@ const AppContent: FC = () => {
     }
   }, [siteName, location]);
 
-  // Verificar se estamos na rota inicial e configurar a exibição da animação
+  // Exibir a animação somente na primeira visita à página inicial
   useEffect(() => {
     if (!enableSplash) return;
-    // Verificar se é a primeira visita à página inicial
     const isFirstVisit = !sessionStorage.getItem('visited');
-    
-    // Se estamos na rota inicial e é a primeira visita, mostrar a animação
-    if (location.pathname === '/') {
-      if (isFirstVisit) {
-        setShowSplash(true);
-        // Marcar que já visitou o site
-        sessionStorage.setItem('visited', 'true');
-      } else {
-        // Se o usuário recarregar a página inicial, mostrar a animação novamente
-        const isPageReload = !sessionStorage.getItem('currentSession');
-        
-        if (isPageReload) {
-          setShowSplash(true);
-          // Criar uma nova sessão
-          sessionStorage.setItem('currentSession', Date.now().toString());
-        }
-      }
+
+    if (location.pathname === '/' && isFirstVisit) {
+      setShowSplash(true);
+      sessionStorage.setItem('visited', 'true');
     } else {
-      // Se não estamos na rota inicial, não mostrar a animação
       setShowSplash(false);
     }
-    
-    // Limpar a sessão atual quando o componente for desmontado
-    return () => {
-      if (location.pathname !== '/') {
-        sessionStorage.removeItem('currentSession');
-      }
-    };
   }, [location.pathname, enableSplash]);
 
   // Função para marcar que a animação foi concluída

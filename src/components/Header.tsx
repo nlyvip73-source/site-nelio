@@ -59,9 +59,9 @@ const Header: FC = () => {
     <AppBar 
       position="sticky"
       sx={{
-        bgcolor: mode === 'dark' ? '#0A0A0A' : '#121212',
-        color: '#fff',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.5)'
+        bgcolor: mode === 'dark' ? '#0A0A0A' : '#ffffff',
+        color: mode === 'dark' ? '#fff' : '#111',
+        boxShadow: mode === 'dark' ? '0 4px 12px rgba(0,0,0,0.5)' : '0 4px 12px rgba(0,0,0,0.08)'
       }}
     >
       <Toolbar>
@@ -81,12 +81,13 @@ const Header: FC = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              background: 'linear-gradient(to right, #d32f2f 0%, #b71c1c 100%)',
+              background: mode === 'dark' ? 'linear-gradient(to right, #d32f2f 0%, #b71c1c 100%)' : 'transparent',
               borderRadius: '8px',
               px: 1.5,
               py: 0.5,
               mr: 1,
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+              border: mode === 'dark' ? 'none' : '1px solid rgba(0,0,0,0.08)',
+              boxShadow: mode === 'dark' ? '0 2px 8px rgba(0, 0, 0, 0.3)' : 'none',
             }}
           >
             <Typography
@@ -96,14 +97,14 @@ const Header: FC = () => {
                 letterSpacing: '0.5px',
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: { xs: '0.9rem', sm: '1.1rem' },
-                color: 'white',
+                color: mode === 'dark' ? 'white' : '#111',
               }}
             >
               {siteName.split(' ')[0]}
               <Box 
                 component="span" 
                 sx={{ 
-                  color: 'white',
+                  color: mode === 'dark' ? 'white' : '#111',
                   fontWeight: 400,
                   ml: 0.5
                 }}
@@ -148,16 +149,16 @@ const Header: FC = () => {
               sx={{ 
                 flexGrow: 1,
                 '& .MuiOutlinedInput-root': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  color: '#fff',
+                  backgroundColor: mode === 'dark' ? 'rgba(255, 255, 255, 0.08)' : '#ffffff',
+                  color: mode === 'dark' ? '#fff' : '#111',
                   height: '36px',
                   fontSize: '0.85rem',
                   '& fieldset': {
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderColor: mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.14)',
                     borderWidth: '1px',
                   },
                   '&:hover fieldset': {
-                    borderColor: 'rgba(142, 36, 170, 0.4)',
+                    borderColor: mode === 'dark' ? 'rgba(142, 36, 170, 0.4)' : 'rgba(0,0,0,0.3)',
                   },
                   '&.Mui-focused fieldset': {
                     borderColor: '#d32f2f',
@@ -167,7 +168,7 @@ const Header: FC = () => {
                 '& .MuiInputBase-input': {
                   padding: '8px 12px',
                   '&::placeholder': {
-                    color: 'rgba(255, 255, 255, 0.6)',
+                    color: mode === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.5)',
                     opacity: 1,
                     fontSize: '0.85rem',
                   },
@@ -177,7 +178,7 @@ const Header: FC = () => {
                 startAdornment: (
                   <InputAdornment position="start" sx={{ ml: 1 }}>
                     <SearchIcon sx={{ 
-                      color: 'rgba(255, 255, 255, 0.6)', 
+                      color: mode === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0,0,0,0.5)', 
                       fontSize: '18px' 
                     }} />
                   </InputAdornment>
@@ -195,10 +196,10 @@ const Header: FC = () => {
             to="/"
             sx={{ 
               mr: 1,
-              color: '#fff',
+              color: mode === 'dark' ? '#fff' : '#111',
               fontWeight: 600,
               '&:hover': {
-                bgcolor: 'rgba(255, 15, 80, 0.1)'
+                bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
               }
             }}
           >
@@ -211,10 +212,10 @@ const Header: FC = () => {
             to="/videos"
             sx={{ 
               mr: 1,
-              color: '#fff',
+              color: mode === 'dark' ? '#fff' : '#111',
               fontWeight: 600,
               '&:hover': {
-                bgcolor: 'rgba(255, 15, 80, 0.1)'
+                bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
               }
             }}
           >
@@ -228,9 +229,9 @@ const Header: FC = () => {
               onClick={() => navigate('/videos')}
               sx={{ 
                 mr: 1,
-                color: '#fff',
+                color: mode === 'dark' ? '#fff' : '#111',
                 '&:hover': {
-                  bgcolor: 'rgba(255, 15, 80, 0.1)'
+                  bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
                 }
               }}
               aria-label="search"
@@ -249,10 +250,10 @@ const Header: FC = () => {
                 startIcon={<PersonIcon />}
                 sx={{ 
                   mr: 1,
-                  color: '#fff',
+                  color: mode === 'dark' ? '#fff' : '#111',
                   fontWeight: 600,
                   '&:hover': {
-                    bgcolor: 'rgba(255, 15, 80, 0.1)'
+                    bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
                   }
                 }}
               >
@@ -263,9 +264,9 @@ const Header: FC = () => {
                 color="inherit" 
                 onClick={handleLogout}
                 sx={{ 
-                  color: '#fff',
+                  color: mode === 'dark' ? '#fff' : '#111',
                   '&:hover': {
-                    bgcolor: 'rgba(255, 15, 80, 0.1)'
+                    bgcolor: mode === 'dark' ? 'rgba(255, 15, 80, 0.1)' : 'rgba(211,47,47,0.08)'
                   } 
                 }} 
                 aria-label="logout"
