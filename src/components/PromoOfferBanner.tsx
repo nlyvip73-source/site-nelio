@@ -89,116 +89,46 @@ const PromoOfferBanner = ({ telegramLink, telegramUsername, prefilledMessage }: 
       <Box
         sx={{
           position: 'relative',
-          maxWidth: 800,
+          maxWidth: 900,
           mx: 'auto',
-          borderRadius: 4,
-          p: { xs: 2.5, sm: 3.5 },
-          color: 'white',
-          background: 'linear-gradient(135deg, #FF0F50, #D10D42, #FF3871, #FF6B9D)',
-          backgroundSize: '300% 300%',
-          animation: 'gradientMove 8s ease infinite, shimmer 3s ease-in-out infinite',
-          boxShadow: '0 8px 32px rgba(255, 15, 80, 0.3), 0 0 0 1px rgba(255,255,255,0.1)',
-          overflow: 'hidden',
-          border: '2px solid rgba(255,255,255,0.2)',
-          backdropFilter: 'blur(10px)',
-          transform: 'perspective(1000px) rotateX(2deg)',
-          transition: 'all 0.3s ease',
-          '&:hover': {
-            transform: 'perspective(1000px) rotateX(0deg) scale(1.02)',
-            boxShadow: '0 12px 48px rgba(255, 15, 80, 0.4), 0 0 0 2px rgba(255,255,255,0.3)'
-          },
-          '@keyframes gradientMove': {
-            '0%': { backgroundPosition: '0% 50%' },
-            '50%': { backgroundPosition: '100% 50%' },
-            '100%': { backgroundPosition: '0% 50%' }
-          },
-          '@keyframes shimmer': {
-            '0%': { boxShadow: '0 8px 32px rgba(255, 15, 80, 0.3)' },
-            '50%': { boxShadow: '0 8px 32px rgba(255, 15, 80, 0.5), 0 0 20px rgba(255, 255, 255, 0.3)' },
-            '100%': { boxShadow: '0 8px 32px rgba(255, 15, 80, 0.3)' }
-          }
+          borderRadius: 3,
+          p: { xs: 3, sm: 4 },
+          color: theme => theme.palette.text.primary,
+          backgroundColor: theme => theme.palette.background.paper,
+          border: theme => `1px solid ${theme.palette.divider}`,
+          boxShadow: theme => theme.palette.mode === 'dark' 
+            ? '0 6px 20px rgba(0,0,0,0.4)'
+            : '0 6px 18px rgba(0,0,0,0.06)'
         }}
       >
-        <Box
-          sx={{
-            position: 'absolute',
-            right: -40,
-            top: -40,
-            width: 120,
-            height: 120,
-            borderRadius: '50%',
-            background: 'rgba(255,255,255,0.1)',
-            animation: 'float 6s ease-in-out infinite'
-          }}
-        />
-        
-        <Box
-          sx={{
-            position: 'absolute',
-            left: -30,
-            bottom: -30,
-            width: 80,
-            height: 80,
-            borderRadius: '50%',
-            background: 'rgba(255,255,255,0.08)',
-            animation: 'float 8s ease-in-out infinite reverse'
-          }}
-        />
-
         <Typography
           variant="h4"
           sx={{
             fontWeight: 800,
             textAlign: 'center',
-            textShadow: '2px 2px 8px rgba(0,0,0,0.4)',
             mb: 1,
-            fontSize: { xs: '1.4rem', sm: '1.8rem', md: '2.2rem' },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 1,
-            animation: 'bounce 2s ease-in-out infinite'
+            fontSize: { xs: '1.4rem', sm: '1.8rem', md: '2rem' }
           }}
         >
-          🎉 SPECIAL OFFER 🎉
+          Special Offer
         </Typography>
 
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{
-            fontWeight: 800,
+            fontWeight: 700,
             textAlign: 'center',
             mb: 2,
-            fontSize: { xs: '1.1rem', sm: '1.4rem', md: '1.6rem' },
-            textShadow: '1px 1px 4px rgba(0,0,0,0.3)'
+            fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' },
+            color: theme => theme.palette.mode === 'dark' ? '#e0e0e0' : '#444'
           }}
         >
-          ALL CONTENT FOR ONLY $100
+          All content for only $100
         </Typography>
 
-        <Typography sx={{ textAlign: 'center', opacity: 0.95, mb: 2.5, fontSize: '0.95rem' }}>
-          Get access to our entire premium collection at an unbeatable price!
+        <Typography sx={{ textAlign: 'center', mb: 3, fontSize: '0.95rem', color: theme => theme.palette.text.secondary }}>
+          Access our complete premium collection with a single payment.
         </Typography>
-
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2.5 }}>
-          <Typography
-            sx={{
-              textAlign: 'center',
-              fontWeight: 700,
-              background: 'rgba(255, 193, 7, 0.25)',
-              color: '#FFC107',
-              display: 'inline-block',
-              px: 2,
-              py: 0.8,
-              borderRadius: 2,
-              border: '1px solid rgba(255, 193, 7, 0.5)',
-              fontSize: '0.9rem',
-              animation: 'glow 2s ease-in-out infinite alternate'
-            }}
-          >
-            📦 EVERYTHING YOU SEE ON THIS SITE INCLUDED! 📦
-          </Typography>
-        </Box>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 2.5, flexWrap: 'wrap' }}>
           <Button
@@ -206,62 +136,37 @@ const PromoOfferBanner = ({ telegramLink, telegramUsername, prefilledMessage }: 
             target="_blank"
             rel="noopener noreferrer"
             startIcon={<TelegramIcon />}
-            variant="contained"
+            variant="outlined"
+            color="inherit"
             sx={{
-              bgcolor: '#1E90FF',
-              color: 'white',
-              fontWeight: 800,
+              fontWeight: 700,
               px: 2.5,
               py: 1,
-              borderRadius: 999,
-              boxShadow: '0 4px 15px rgba(30,144,255,0.4)',
-              transition: 'all 0.3s ease',
-              animation: 'pulseButton 3s ease-in-out infinite',
-              '&:hover': { 
-                bgcolor: '#187bcd', 
-                transform: 'translateY(-2px) scale(1.05)', 
-                boxShadow: '0 8px 25px rgba(30,144,255,0.6)' 
-              }
+              borderRadius: 2,
             }}
           >
-            Come to Negociate
+            Contact on Telegram
           </Button>
           
           <Button
             variant="contained"
             onClick={handleStripePayment}
             disabled={isStripeLoading || !stripePublishableKey}
+            color="primary"
             sx={{
-              bgcolor: '#635bff',
-              color: 'white',
               fontWeight: 800,
               px: 2.5,
               py: 1,
-              borderRadius: 999,
-              boxShadow: '0 4px 15px rgba(99, 91, 255, 0.4)',
-              transition: 'all 0.3s ease',
-              animation: 'pulseButton 3s ease-in-out infinite 1.5s',
-              '&:hover': { 
-                bgcolor: '#4b45c6', 
-                transform: 'translateY(-2px) scale(1.05)', 
-                boxShadow: '0 8px 25px rgba(99, 91, 255, 0.6)' 
-              }
+              borderRadius: 2,
             }}
           >
             {isStripeLoading ? 'Processing...' : 'Pay $100'}
           </Button>
         </Box>
 
-        <Typography sx={{ textAlign: 'center', fontSize: '0.85rem', opacity: 0.8, mb: 2.5 }}>
-          ⚡ Instant delivery after payment ⚡
+        <Typography sx={{ textAlign: 'center', fontSize: '0.85rem', color: theme => theme.palette.text.secondary }}>
+          Instant access delivered automatically after payment.
         </Typography>
-
-        <Box sx={{ 
-          '@keyframes float': { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
-          '@keyframes bounce': { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-5px)' } },
-          '@keyframes glow': { '0%': { boxShadow: '0 0 5px rgba(255, 193, 7, 0.5)' }, '100%': { boxShadow: '0 0 20px rgba(255, 193, 7, 0.8)' } },
-          '@keyframes pulseButton': { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.05)' } }
-        }} />
       </Box>
     </Box>
   );
